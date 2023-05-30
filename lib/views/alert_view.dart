@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AlertView extends StatelessWidget {
@@ -27,6 +28,33 @@ class AlertView extends StatelessWidget {
         });
   }
 
+  void showOtherAlert(BuildContext context) {
+    showCupertinoDialog(
+        barrierDismissible: true,
+        context: context,
+        builder: (context) {
+          return CupertinoAlertDialog(
+            title: const Text('Alert cupertino'),
+            content: const Column(mainAxisSize: MainAxisSize.min, children: [
+              Text('Sample content'),
+              SizedBox(height: 20),
+              FlutterLogo(size: 100)
+            ]),
+            actions: [
+              TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.red),
+                  )),
+              TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('Ok'))
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +73,7 @@ class AlertView extends StatelessWidget {
               )),
           const SizedBox(height: 30),
           ElevatedButton(
-              onPressed: () => displayAlert(context),
+              onPressed: () => showOtherAlert(context),
               child: const Padding(
                 padding: EdgeInsets.all(15),
                 child: Text(
