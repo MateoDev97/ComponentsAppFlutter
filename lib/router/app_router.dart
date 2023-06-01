@@ -31,6 +31,16 @@ class AppRoutes {
         title: 'Inputs Widgets',
         view: const InputsView(),
         icon: Icons.text_fields_rounded),
+    MenuOption(
+        route: 'sliderView',
+        title: 'Slider Widgets',
+        view: const SliderView(),
+        icon: Icons.shape_line_outlined),
+    MenuOption(
+        route: 'listViewBuilder',
+        title: 'List View Infinite Scroll',
+        view: const ListViewBuilderView(),
+        icon: Icons.build_circle_outlined),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {
